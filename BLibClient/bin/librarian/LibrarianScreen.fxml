@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="497.0" prefWidth="680.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="librarian.LibrarianScreenController">
+	<tabs>
+		<Tab text="Sign New Member">
+			<content>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="409.0" prefWidth="540.0">
+					<children>
+						<Label fx:id="welcomeLabel" layoutX="104.0" layoutY="14.0" text="Hello Name!">
+							<font>
+								<Font size="20.0" />
+							</font>
+						</Label>
+						<Label layoutX="76.0" layoutY="190.0" prefHeight="22.0" prefWidth="314.0" text="Note: After submission, ID and Name cannot be modified" />
+						<TitledPane animated="false" layoutX="76.0" layoutY="53.0" prefHeight="114.0" prefWidth="410.0" text="Registration Information:">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="88.0" prefWidth="318.0">
+									<children>
+										<Label layoutX="17.0" layoutY="21.0" text="ID:" />
+										<Label layoutX="14.0" layoutY="56.0" text="Password:" />
+										<TextField fx:id="memberIdField" layoutX="79.0" layoutY="16.0" prefHeight="26.0" prefWidth="239.0" promptText="ID must contain 4 digits" />
+                              <PasswordField fx:id="passwordField" layoutX="79.0" layoutY="52.0" prefHeight="26.0" prefWidth="240.0" />
+									</children>
+								</AnchorPane>
+							</content>
+						</TitledPane>
+						<TitledPane animated="false" layoutX="73.0" layoutY="234.0" prefHeight="181.0" prefWidth="413.0" text="Personal information:">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="87.0" prefWidth="202.0">
+									<children>
+										<TextField fx:id="emailField" layoutX="89.0" layoutY="45.0" prefHeight="26.0" prefWidth="235.0" />
+										<Label layoutX="19.0" layoutY="49.0" text="Email:" />
+										<Label layoutX="19.0" layoutY="84.0" text="Phone:" />
+										<Label layoutX="19.0" layoutY="16.0" text="Name:" />
+										<Label layoutX="18.0" layoutY="116.0" text="Address:" />
+										<TextField fx:id="nameField" layoutX="89.0" layoutY="12.0" prefHeight="26.0" prefWidth="234.0" promptText="Full name" />
+										<TextField fx:id="phoneField" layoutX="89.0" layoutY="78.0" prefHeight="26.0" prefWidth="235.0" promptText="Phone must contain 10 digits" />
+										<TextField fx:id="addressField" layoutX="89.0" layoutY="111.0" prefWidth="235.0" />
+									</children>
+								</AnchorPane>
+							</content>
+						</TitledPane>
+						<Button fx:id="createMemberBtn" layoutX="547.0" layoutY="390.0" mnemonicParsing="false" onAction="#handleCreateMember" text="Create Member" />
+						<Button fx:id="logoutBtn" layoutX="545.0" layoutY="428.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="101.0" text="Logout" />
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+		<Tab text="Return/Borrow Book">
+			<content>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+					<children>
+						<SplitPane prefHeight="468.0" prefWidth="680.0">
+							<items>
+								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="417.0" prefWidth="622.0">
+									<children>
+										<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="470.0" prefWidth="680.0">
+											<items>
+												<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="173.0" prefWidth="538.0">
+													<children>
+														<Label layoutX="71.0" layoutY="21.0" text="Borrow a book">
+															<font>
+																<Font size="22.0" />
+															</font>
+														</Label>
+														<TextField fx:id="borrowBookIdField" layoutX="162.0" layoutY="70.0" prefHeight="26.0" prefWidth="159.0" promptText="Enter Book Barcode Here" />
+														<Label layoutX="58.0" layoutY="74.0" prefHeight="18.0" prefWidth="82.0" text="Book Barcode:" />
+														<Label layoutX="61.0" layoutY="151.0" prefHeight="18.0" prefWidth="82.0" text="Member ID:" />
+														<Label layoutX="61.0" layoutY="112.0" prefHeight="18.0" prefWidth="82.0" text="Book Name:" />
+														<TextField fx:id="borrowBookNameField" layoutX="162.0" layoutY="108.0" prefHeight="26.0" prefWidth="160.0" />
+														<TextField fx:id="borrowMemberIdField" layoutX="162.0" layoutY="147.0" prefHeight="26.0" prefWidth="160.0" promptText="Enter Member ID Here" />
+														<Button fx:id="submitBorrowBtn" layoutX="193.0" layoutY="185.0" mnemonicParsing="false" onAction="#handleBookBorrow" text="Submit Borrow" />
+                                          <Button fx:id="btnShowName" layoutX="467.0" layoutY="185.0" mnemonicParsing="false" onAction="#handleShowBookName" text="Show book name" />
+                                          <ImageView fx:id="imgBook" fitHeight="138.0" fitWidth="170.0" layoutX="399.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="109.0" />
+													</children>
+												</AnchorPane>
+												<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="90.0" prefWidth="484.0">
+													<children>
+														<Button fx:id="logoutBtn1" layoutX="609.0" layoutY="216.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+														<Label layoutX="65.0" layoutY="21.0" text="Return a book">
+															<font>
+																<Font size="22.0" />
+															</font>
+														</Label>
+														<Label layoutX="44.0" layoutY="72.0" text="Book Barcode:" />
+														<Label layoutX="44.0" layoutY="110.0" text="Member ID:" />
+														<TextField fx:id="returnBookIdField" layoutX="143.0" layoutY="68.0" prefHeight="26.0" prefWidth="162.0" promptText="Enter Book Barcode Here" />
+														<TextField fx:id="returnMemberIdField" layoutX="143.0" layoutY="106.0" prefHeight="26.0" prefWidth="162.0" promptText="Enter Member ID Here" />
+														<Button fx:id="submitReturnBtn" layoutX="195.0" layoutY="173.0" mnemonicParsing="false" onAction="#handleBookReturn" text="Submit" />
+														<fx:define>
+															<ToggleGroup fx:id="returnTypeToggle" />
+														</fx:define>
+														<RadioButton fx:id="ReturnRadioButtn" layoutX="163.0" layoutY="145.0" mnemonicParsing="false" selected="true" text="Return">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="returnTypeToggle" />
+                                             </toggleGroup></RadioButton>
+														<RadioButton fx:id="LostRadioButtn" layoutX="229.0" layoutY="145.0" mnemonicParsing="false" text="Lost" toggleGroup="$returnTypeToggle" />
+													</children>
+												</AnchorPane>
+											</items>
+										</SplitPane>
+									</children>
+								</AnchorPane>
+							</items>
+						</SplitPane>
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+		<Tab text="Member card">
+			<content>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+					<children>
+						<TitledPane animated="false" layoutX="187.0" layoutY="300.0" prefHeight="156.0" prefWidth="306.0" text="Extend Book Return">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="129.0" prefWidth="365.0">
+									<children>
+										<Label layoutX="42.0" layoutY="22.0" text="Member ID" />
+										<Label layoutX="51.0" layoutY="60.0" text="Book ID" />
+										<Label fx:id="extensionErrorLabel" layoutX="24.0" layoutY="99.0" text="Error Label" />
+										<TextField fx:id="extensionMemberIdField" layoutX="116.0" layoutY="18.0" prefHeight="26.0" prefWidth="164.0" promptText="Enter member ID" />
+										<TextField fx:id="extensionMemberIdField1" layoutX="116.0" layoutY="56.0" prefHeight="26.0" prefWidth="164.0" promptText="Enter book ID" />
+										<Button fx:id="submitExtensionBtn" layoutX="168.0" layoutY="95.0" mnemonicParsing="false" onAction="#handleExtension" text="Submit extension" />
+									</children>
+								</AnchorPane>
+							</content>
+						</TitledPane>
+						<TableView fx:id="memberCardsTable" layoutX="14.0" layoutY="51.0" prefHeight="200.0" prefWidth="652.0">
+							<columns>
+								<TableColumn fx:id="idColumn" prefWidth="75.0" text="ID" />
+								<TableColumn fx:id="nameColumn" prefWidth="100.0" text="Name" />
+								<TableColumn fx:id="emailColumn" prefWidth="150.0" text="Email" />
+								<TableColumn fx:id="phoneColumn" prefWidth="100.0" text="Phone" />
+								<TableColumn fx:id="addressColumn" prefWidth="96.0" text="Address" />
+								<TableColumn fx:id="statusColumn" prefWidth="129.5999755859375" text="Status" />
+							</columns>
+						</TableView>
+						<Label layoutX="257.0" layoutY="14.0" text="View Member Cards:">
+							<font>
+								<Font size="18.0" />
+							</font>
+						</Label>
+						<Button fx:id="logoutBtn2" layoutX="587.0" layoutY="430.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="81.0" text="Logout" />
+						<Button fx:id="filterMembersBtn" layoutX="336.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleMemberFilter" prefHeight="26.0" prefWidth="64.0" text="Filter" />
+						<Label layoutX="14.0" layoutY="264.0" text="Member id:" />
+						<TextField fx:id="memberFilterField" layoutX="88.0" layoutY="259.0" prefHeight="26.0" prefWidth="237.0" promptText="to filter members, enter id here" />
+						<Button fx:id="refreshMembersBtn" layoutX="415.0" layoutY="259.0" mnemonicParsing="false" onAction="#handleRefreshMembers" text="Refresh" />
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+		<Tab text="Subscriber's History">
+			<content>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+					<children>
+						<Label layoutX="56.0" layoutY="35.0" text="Subscriber History Overview">
+							<font>
+								<Font size="23.0" />
+							</font>
+						</Label>
+						<TableView fx:id="notificationsTable" layoutX="56.0" layoutY="90.0" prefHeight="259.0" prefWidth="590.0">
+							<columns>
+								<TableColumn fx:id="notificationIdColumn" prefWidth="102.4000244140625" text="Date" />
+								<TableColumn fx:id="librarianIdColumn" prefWidth="90" text="Librarian ID" />
+								<TableColumn fx:id="notificationIdColumn1" prefWidth="102.4000244140625" text="Subscriber ID" />
+								<TableColumn fx:id="messageColumn" prefWidth="294.0" text="Message from system" />
+							</columns>
+						</TableView>
+						<RadioButton fx:id="subscriberFilterRadio" layoutX="56.0" layoutY="369.0" selected="true" text="Filter by Subscriber">
+							<toggleGroup>
+								<ToggleGroup fx:id="filterTypeGroup" />
+							</toggleGroup>
+						</RadioButton>
+						<RadioButton fx:id="librarianFilterRadio" layoutX="200.0" layoutY="369.0" text="Filter by Librarian" toggleGroup="$filterTypeGroup" />
+						<TextField fx:id="notificationFilterField" layoutX="56.0" layoutY="403.0" promptText="Enter ID here" />
+						<Button fx:id="filterNotificationsBtn" layoutX="230.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleNotificationFilter" prefHeight="25.0" prefWidth="54.0" text="Filter" />
+						<Button fx:id="logoutBtn3" layoutX="603.0" layoutY="429.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+						<Button fx:id="refreshNotificationsBtn" layoutX="300.0" layoutY="403.0" mnemonicParsing="false" onAction="#handleRefreshNotifications" text="Refresh" />
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+		<Tab text="Borrow Time Report">
+			<content>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+					<children>
+						<BarChart fx:id="borrowTimeChart" animated="false" layoutX="7.0" layoutY="63.0" legendSide="TOP" legendVisible="true" prefHeight="342.0" prefWidth="663.0">
+							<xAxis>
+								<CategoryAxis label="Loan Duration" side="BOTTOM" fx:id="xAxis" />
+							</xAxis>
+							<yAxis>
+								<NumberAxis fx:id="yAxis" label="Number of Books" side="LEFT" />
+							</yAxis>
+						</BarChart>
+						<Button fx:id="logoutBtn4" layoutX="615.0" layoutY="431.0" mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+						<Label layoutX="251.0" layoutY="14.0" prefHeight="31.0" prefWidth="163.0" text="Borrow Time Report" textAlignment="CENTER">
+							<font>
+								<Font size="18.0" />
+							</font>
+						</Label>
+						<Button fx:id="loanDurationGraphBtn" layoutX="29.0" layoutY="421.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="101.0" text="Loan Duration" />
+						<Button fx:id="lateReturnGraphBtn" layoutX="165.0" layoutY="421.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="102.0" text="Late Return" />
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+		<Tab text="Status Report">
+			<content>
+				<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+					<children>
+						<PieChart fx:id="statusChart" layoutX="43.0" layoutY="35.0" prefHeight="382.0" prefWidth="599.0" />
+						<Button fx:id="logoutBtn5" layoutX="555.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="105.0" text="Logout" />
+						<Label layoutX="66.0" layoutY="8.0" text="Member Status Distribution">
+							<font>
+								<Font size="18.0" />
+							</font>
+						</Label>
+						<Button fx:id="generateMemberStatusBtn" layoutX="439.0" layoutY="424.0" mnemonicParsing="false" onAction="#handleGenerateMemberStatus" text="Generate Report" />
+						<RadioButton fx:id="sevenDaysRadio" layoutX="22.0" layoutY="429.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="70.0" text="0-7 days">
+							<toggleGroup>
+								<ToggleGroup fx:id="statusPeriodGroup" />
+							</toggleGroup>
+						</RadioButton>
+						<RadioButton fx:id="fourteenDaysRadio" layoutX="94.0" layoutY="429.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="83.0" text="8-14 days" toggleGroup="$statusPeriodGroup" />
+						<RadioButton fx:id="twentyOneDaysRadio" layoutX="176.0" layoutY="429.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="82.0" text="15-21 days" toggleGroup="$statusPeriodGroup" />
+						<RadioButton fx:id="thirtyDaysRadio" layoutX="273.0" layoutY="430.0" mnemonicParsing="false" prefHeight="18.0" prefWidth="86.0" text="21-30 days" toggleGroup="$statusPeriodGroup" />
+					</children>
+				</AnchorPane>
+			</content>
+		</Tab>
+	</tabs>
+</TabPane>

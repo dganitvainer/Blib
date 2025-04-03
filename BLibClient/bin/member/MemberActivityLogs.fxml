@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="714.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.MemberActivityLogsController">
+   <children>
+      <TableView fx:id="activityLogsTable" layoutX="31.0" layoutY="87.0" prefHeight="289.0" prefWidth="652.0">
+         <columns>
+            <TableColumn fx:id="dateColumn" prefWidth="150.0" text="Date" />
+            <TableColumn fx:id="librarianIdColumn" prefWidth="123.0" text="Librarian ID" />
+            <TableColumn fx:id="messageColumn" prefWidth="378.0" text="Message from system" />
+         </columns>
+      </TableView>
+      <Button fx:id="logoutBtn" layoutX="596.0" layoutY="394.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="25.0" prefWidth="87.0" text="Back" />
+      <Label layoutX="31.0" layoutY="28.0" text="Subscriber History Overview">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

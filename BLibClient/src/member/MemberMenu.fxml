@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="member.MemberMenuController">
+   <children>
+      <Label fx:id="welcomeHeader" alignment="CENTER" contentDisplay="CENTER" layoutX="197.0" layoutY="33.0" text="Hello Name!">
+         <font>
+            <Font size="33.0" />
+         </font>
+         <AnchorPane.leftAnchor>0.0</AnchorPane.leftAnchor>
+         <AnchorPane.rightAnchor>0.0</AnchorPane.rightAnchor>
+      </Label>
+      <Button fx:id="orderBtn" layoutX="211.0" layoutY="123.0" mnemonicParsing="false" onAction="#handleOrderBook" prefHeight="36.0" prefWidth="154.0" text="Search a Book">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Button fx:id="logoutBtn" layoutX="458.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleLogout" prefHeight="26.0" prefWidth="128.0" text="Logout" />
+      <Accordion layoutX="236.0" layoutY="141.0" />
+      <Button fx:id="notificationBtn" layoutX="210.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleNotification" prefHeight="36.0" prefWidth="154.0" text="Notifications">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="viewBrrwBookBtn" layoutX="211.0" layoutY="295.0" mnemonicParsing="false" onAction="#handleViewBorrowedBooks" prefHeight="36.0" prefWidth="154.0" text="Borrow History">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="memberCardBtn" layoutX="210.0" layoutY="237.0" mnemonicParsing="false" onAction="#handleMemberCard" prefHeight="36.0" prefWidth="154.0" text="Personal Info">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label fx:id="subscriberStatus" layoutX="211.0" layoutY="90.0" text="Activity Status" />
+   </children>
+</AnchorPane>
